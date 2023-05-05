@@ -1,6 +1,6 @@
 const Comment = require('../models/Comment');
 
-exports.getAll = async (req, res) =>{
+exports.getComments = async (req, res) =>{
     try {
         let comments = await Comment.find().lean();
 
