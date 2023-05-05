@@ -1,0 +1,12 @@
+{
+  "name": "comments",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start:back": "cd backend && npm run start:dev",
+    "start:front": "cd frontend && npm run start",
+    "app:dev": "cd backend && npm run start"
+  },
+  "author": "Illya",
+  "license": "ISC"
+}
