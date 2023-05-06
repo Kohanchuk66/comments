@@ -1,6 +1,6 @@
 const Comment = require('../models/Comment');
 
-exports.getAll = async (req, res) =>{
+exports.getComments = async (req, res) =>{
     try {
         let comments = await Comment.find().lean();
 
@@ -10,7 +10,6 @@ exports.getAll = async (req, res) =>{
             });
 
         return res.status(200).json({
-            count,
             comments
         });
     } catch (e) {
@@ -25,10 +24,11 @@ exports.createComment = async (req, res) =>{
         const {username, email, homePage, text} = req.body;
 
         const newComment = new Comment({username, email, homePage, text});
+        await newComment.save();
+        
         let comments = await Comment.find().lean();
         
         return res.status(201).json( {
-            count,
             comments
         });
     } catch (e) {

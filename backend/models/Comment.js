@@ -9,7 +9,7 @@ commentSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
         lowercase: true,
         validate: [validator.isEmail, `Provide a valid e-mail`]
     },
