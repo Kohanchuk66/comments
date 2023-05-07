@@ -1,18 +1,18 @@
 import React from 'react';
+
 import Comment from './Comment';
 
-const CommentList = ({ comments }) => {
+export const CommentList = ({ comments }) => {
   return (
     <div>
       {comments.map(comment => (
         <Comment
-          key={comment.id}
-          author={comment.author}
+          username={comment.username}
+          email={comment.email}
+          homePage={comment.homePage}
           text={comment.text}
         />
       ))}
     </div>
   );
 }
-
-export default CommentList;

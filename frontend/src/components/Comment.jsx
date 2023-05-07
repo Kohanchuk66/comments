@@ -1,10 +1,13 @@
 import React from 'react';
+import './styles.css';
 
-const Comment = ({ author, text }) => {
+const Comment = ({ username, email, homePage, text }) => {
   return (
-    <div>
-      <h4>{author}</h4>
-      <p>{text}</p>
+    <div className = "comment">
+      <h4 className = "comment-username">{username}</h4>
+      <p className = "comment-email">{email}</p>
+      <p className = "comment-homepage">{homePage? homePage: ""}</p>
+      <p className = "comment-text">{text}</p>
     </div>
   );
 }

@@ -1,38 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import CommentList from './components/CommentList';
+import { CommentsPage } from './pages/CommentPage';
+import {Loader} from './components/Loader'
 
 function App() {
-  const [comments, setComments] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/comment')
-      .then(response => response.json())
-      .then(data => {
-        setComments(data.comments);
-        setIsLoaded(true);
-      },
-      (error) => {
-        setIsLoaded(true);
-        setError(error);
-      }
-    );
-  }, []);
-
-  if (error) {
-    return <div>Ошибка: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Загрузка...</div>;
-  } else {
-    return (
-      <div>
-        <h2>Comments</h2>
-        <CommentList comments = {comments} />
-      </div>
-    );
-  }
+  if (document.readyState == 'loading') return <Loader/>
+  return <CommentsPage />
 }
 
 export default App;

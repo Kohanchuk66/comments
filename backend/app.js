@@ -42,7 +42,7 @@ app.use(cors());
 app.use(allowCrossDomain)
 
 app.use(bodyParser.json());
-app.use(express.json());
+app.use(express.json({extended: true}));
 
 app.use('/comment', commentRoutes);
 
